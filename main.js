@@ -1,6 +1,9 @@
 const choises = ["rock","paper","scissors"]
 
-let userChoise = prompt("aaa" , "") //.toLocaleLowerCase;
+let userChoise = prompt() 
+
+let playerScore = 0;
+let computerScore = 0;
 
 getComputerChoice = ()=>{
 
@@ -14,30 +17,29 @@ getComputerChoice = ()=>{
 
 let computerSelection = getComputerChoice();
 
-// console.log(computerSelection);
 
 game =(playerSelection) => {
 
 if (playerSelection === "rock" && computerSelection === "scissors"){
     console.log("win");
+    playerScore++;
+
 }else if (playerSelection === "scissors" && computerSelection === "paper") {
     console.log("win");
+    playerScore++;
+
 }else if (playerSelection === "paper" && computerSelection === "rock") {
     console.log("win");
+    playerScore++;
+
 }else if (playerSelection === computerSelection ) {
     console.log("draw")
 }else {
     console.log("lost")
+    computerScore++;
 } 
+console.log(playerScore)
+console.log(computerScore)
 
-// if(playerSelection === computerSelection){
-//     "Draw"
-// }else if(playerSelection === "rock" && computerSelection === "paper"){
-//     console.log("win");
-// }else if
 
 }
-
-game(userChoise.toLocaleLowerCase());
-
-
