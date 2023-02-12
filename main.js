@@ -1,45 +1,33 @@
 const choises = ["rock","paper","scissors"]
 
+let playerScore = 0
+let computerScore = 0
 let userChoise = prompt() 
 
-let playerScore = 0;
-let computerScore = 0;
-
 getComputerChoice = ()=>{
-
     function randomItem(items){
         return items[Math.floor(Math.random()*items.length)];
     }
-
     return(randomItem(choises));
-
 }
 
-let computerSelection = getComputerChoice();
+play = (playerSelection, computerSelection)=>{
 
-
-game =(playerSelection) => {
-
-if (playerSelection === "rock" && computerSelection === "scissors"){
-    console.log("win");
-    playerScore++;
-
-}else if (playerSelection === "scissors" && computerSelection === "paper") {
-    console.log("win");
-    playerScore++;
-
-}else if (playerSelection === "paper" && computerSelection === "rock") {
-    console.log("win");
-    playerScore++;
-
-}else if (playerSelection === computerSelection ) {
-    console.log("draw")
-}else {
-    console.log("lost")
-    computerScore++;
-} 
-console.log(playerScore)
-console.log(computerScore)
-
-
+    if (playerSelection === computerSelection) {
+        console.log("draw")
+    }else if(playerSelection === "rock" && computerSelection === "scissors" ||
+            playerSelection === "paper" && computerSelection === "rock" ||
+            playerSelection === "scissors" && computerSelection === "paper"){
+        console.log("win")
+    }else{
+        console.log("lose")    
+    }
 }
+
+game = (play) =>{
+    for (let i = 0; i < 5; i++) {       
+        console.log(play(userChoise.toLocaleLowerCase(),getComputerChoice()));
+    }
+}
+
+game(play);
